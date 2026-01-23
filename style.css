@@ -1,0 +1,352 @@
+/* ============================= */
+/*      VARIÁVEIS DE TEMA        */
+/* ============================= */
+:root {
+  /* cores padrão – vermelho x branco */
+  --cor-topo: red;
+  --cor-baixo: white;
+
+  --texto-topo: white;
+  --texto-baixo: black;
+
+  --pontos1: white;
+  --pontos2: black;
+
+  --pen-bg1: white;
+  --pen-text1: black;
+
+  --pen-bg2: black;
+  --pen-text2: white;
+
+  --cronometro-bg: white;
+  --cronometro-border: black;
+  --cronometro-text: black;
+
+  --config-bg: black;
+  --config-text: white;
+
+  --instituicao2-bg: black;
+  --instituicao2-text: white;
+
+  --instituicao1-bg: white;
+  --instituicao1-text: black;
+
+}
+
+/* Tema alternativo: azul x branco */
+.tema-azul {
+  --cor-topo: red;
+  --texto-topo: white;
+
+  --cor-baixo: blue;
+  --texto-baixo: white;
+
+  --pontos1: white;
+  --pontos2: white;
+
+  /* penalidades */
+  --pen-bg1: white;
+  --pen-text1: black;
+
+  --pen-bg2: white;
+  --pen-text2: black;
+
+  /* cronômetro */
+  --cronometro-bg: white;
+  --cronometro-border: black;
+  --cronometro-text: black;
+
+  /* botão config */
+  --config-bg: black;
+  --config-text: white;
+
+  --instituicao2-bg: white;
+  --instituicao2-text: black;
+
+  --instituicao1-bg: white;
+  --instituicao1-text: black;
+}
+
+/* ============================= */
+/*        SEU CSS ORIGINAL       */
+/* ============================= */
+
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.tela {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.parteSuperior,
+.parteInferior {
+  height: 50%;
+  position: relative;
+  overflow: hidden;
+}
+
+.parteSuperior { background-color: var(--cor-topo); }
+.parteInferior { background-color: var(--cor-baixo); }
+
+/* nomes dos oponentes */
+.oponent1, .oponent2 {
+  font-size: 13vmin;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.oponent1 { color: var(--texto-topo); }
+.oponent2 { color: var(--texto-baixo); }
+
+/* pontos */
+.pontos1, .pontos2 {
+  position: absolute;
+  left: 3vmin;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 80%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: min(45vmin, 60vh);
+  font-weight: bold;
+  line-height: 1;
+  overflow: visible;
+}
+.pontos1 { color: var(--pontos1); }
+.pontos2 { color: var(--pontos2); }
+
+/* modos portrait */
+@media (orientation: portrait) and (max-width: 1024px) {
+  .tela::after {
+    content: "Gire o dispositivo para horizontal";
+    position: fixed;
+    inset: 0;
+    background: black;
+    color: white;
+    font-size: 6vmin;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    text-align: center;
+    padding: 2vmin;
+  }
+}
+@media (min-width: 1025px) {
+  .tela::after { content: none; }
+}
+
+/* instituições */
+.instituicao1, .instituicao2 {
+  position: absolute;
+  width: 45vmin;
+  height: 10vmin;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2vmin;
+  font-size: 7vmin;
+  font-weight: bold;
+  text-align: center;
+  overflow: hidden;
+}
+.instituicao1 {
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--instituicao1-bg);
+  color: var(--instituicao1-text);
+}
+
+.instituicao2 {
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--instituicao2-bg);
+  color: var(--instituicao2-text);
+}
+
+
+/* cronômetro */
+.cronometro {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: var(--cronometro-bg);
+  border: 5px solid var(--cronometro-border);
+  border-radius: 2vmin;
+  padding: 3vmin;
+  width: 40vmin;
+  height: 20vmin;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2vmin;
+  z-index: 50;
+}
+.tempo-display {
+  font-size: 14vmin;
+  font-weight: bold;
+  text-align: center;
+  color: var(--cronometro-text);
+  line-height: 1;
+  white-space: nowrap;
+}
+.controles {
+  display: flex;
+  justify-content: center;
+  gap: 2vmin;
+  width: 100%;
+}
+.controles button {
+  padding: 1vmin 2vmin;
+  font-size: 3vmin;
+  font-weight: bold;
+  border: 3px solid var(--cronometro-border);
+  background: #eee;
+  border-radius: 1vmin;
+  cursor: pointer;
+}
+
+/* penalidades */
+.botoes1, .botoes2 {
+  position: absolute;
+  top: 7%;
+  right: 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 1vmin;
+  z-index: 30;
+}
+
+.pen-box, .pen-box1, .pen-box2 {
+  width: 40vmin;
+  height: 8vmin;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2vmin;
+  font-size: 6vmin;
+  font-weight: bold;
+  border-radius: 1.8vmin;
+  white-space: nowrap;
+}
+.pen-box1 {
+  background: var(--pen-bg1);
+  color: var(--pen-text1);
+}
+.pen-box2 {
+  background: var(--pen-bg2);
+  color: var(--pen-text2);
+}
+
+/* contador */
+.count, .count1, .count2 {
+  font-size: 8vmin;
+  font-weight: bold;
+  user-select: none;
+  margin-right: 1vmin;
+}
+.count1 { color: var(--pen-text1); }
+.count2 { color: var(--pen-text2); }
+
+/* texto do nome da penalidade */
+.label { flex: 1; text-align: center; }
+
+/* botões + e - */
+.menos, .mais {
+  font-size: 5vmin;
+  width: 6vmin;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* botão de configuração */
+.config-btn {
+  position: fixed;
+  bottom: 47vmin;
+  right: 1vmin;
+  width: 7vmin;
+  height: 7vmin;
+  border-radius: 35%;
+  border: none;
+  background-color: var(--config-bg);
+  color: var(--config-text);
+  font-size: 5vmin;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.4;
+  transition: opacity .2s, transform .2s;
+  z-index: 999;
+}
+.config-btn:hover { opacity: 1; transform: scale(1.08); }
+
+/* ===== MODAL CONFIG ===== */
+.config-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.config-content {
+  background: white;
+  width: 340px;
+  padding: 20px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.config-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.config-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.config-close {
+  cursor: pointer;
+  font-size: 22px;
+}
+
+.config-section h3 {
+  margin-bottom: 10px;
+}
+
+.config-option {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 6px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  background: #eee;
+}
+
+.config-option:hover {
+  background: #ddd;
+}

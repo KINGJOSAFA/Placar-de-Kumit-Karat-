@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>teste containers</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+ 
+  <div class="tela">
+
+    <div class="cronometro">
+      <div class="tempo-display">00:00</div>
+      <div class="controles">
+        <button class="btn-play">Play</button>
+        <button class="btn-stop">Stop</button>
+        <button class="btn-reset">Reset</button>
+      </div>
+    </div>
+
+    <div class="parteSuperior">
+      <div class="botoes1">
+        <div class="pen-box pen-box1" data-side="1" data-type="ippon">
+          <div class="count count1">0</div>
+          <span class="menos">−</span>
+          <span class="label">IPPON</span>
+          <span class="mais">+</span>
+        </div>
+
+        <div class="pen-box pen-box1" data-side="1" data-type="wazari">
+          <div class="count count1">0</div>
+          <span class="menos">−</span>
+          <span class="label">WAZARI</span>
+          <span class="mais">+</span>
+        </div>
+
+        <div class="pen-box pen-box1" data-side="1" data-type="jogai">
+          <div class="count count1">0</div>
+          <span class="menos">−</span>
+          <span class="label">JOGAI</span>
+          <span class="mais">+</span>
+        </div>
+
+        <div class="pen-box pen-box1" data-side="1" data-type="atenai">
+          <div class="count count1">0</div>
+          <span class="menos">−</span>
+          <span class="label">ATENAI</span>
+          <span class="mais">+</span>
+        </div>
+
+        <div class="pen-box pen-box1" data-side="1" data-type="mubobi">
+          <div class="count count1">0</div>
+          <span class="menos">−</span>
+          <span class="label">MUBOBI</span>
+          <span class="mais">+</span>
+        </div>
+      </div>
+
+      <div class="instituicao1">Dojo</div>
+      <div class="oponent1">Atleta</div>
+      <div class="pontos1">0</div>
+    </div>
+
+    <div class="parteInferior">
+      <div class="botoes2">
+        <div class="pen-box pen-box2" data-side="2" data-type="ippon">
+          <div class="count count2">0</div>
+          <span class="menos">−</span>
+          <span class="label">IPPON</span>
+          <span class="mais">+</span>
+        </div>
+
+        <div class="pen-box pen-box2" data-side="2" data-type="wazari">
+          <div class="count count2">0</div>
+          <span class="menos">−</span>
+          <span class="label">WAZARI</span>
+          <span class="mais">+</span>
+        </div>
+
+        <div class="pen-box pen-box2" data-side="2" data-type="jogai">
+          <div class="count count2">0</div>
+          <span class="menos">−</span>
+          <span class="label">JOGAI</span>
+          <span class="mais">+</span>
+        </div>
+
+        <div class="pen-box pen-box2" data-side="2" data-type="atenai">
+          <div class="count count2">0</div>
+          <span class="menos">−</span>
+          <span class="label">ATENAI</span>
+          <span class="mais">+</span>
+        </div>
+
+        <div class="pen-box pen-box2" data-side="2" data-type="mubobi">
+          <div class="count count2">0</div>
+          <span class="menos">−</span>
+          <span class="label">MUBOBI</span>
+          <span class="mais">+</span>
+        </div>
+      </div>
+
+      <div class="instituicao2">Dojo</div>
+      <div class="oponent2">Atleta</div>
+      <div class="pontos2">0</div>
+    </div>
+
+  </div>
+
+  <button class="config-btn">⚙️</button>
+
+  <div class="config-modal" id="configModal">
+  <div class="config-content">
+
+    <div class="config-header">
+      <span class="config-title">Configurações</span>
+      <span class="config-close" id="closeConfig">✕</span>
+    </div>
+
+    <div class="config-section">
+      <h3>Modalidade de Luta</h3>
+
+      <button class="config-option" data-mode="ippon">Shobu-Ippon</button>
+      <button class="config-option" data-mode="nihon">Shobu-Nihon</button>
+      <button class="config-option" data-mode="sanbon">Shobu-Sanbon</button>
+      <button class="config-option" data-mode="rotation">Rotation</button>
+    </div>
+
+    <div class="config-section">
+      <h3>Tema</h3>
+
+      <button class="config-option" data-theme="rb">Vermelho / Branco</button>
+      <button class="config-option" data-theme="ra">Vermelho / Azul</button>
+    </div>
+
+  </div>
+</div>
+
+
+</body>
+<script src="script.js"></script>
+</html>
